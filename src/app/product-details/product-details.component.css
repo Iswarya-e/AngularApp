@@ -1,0 +1,65 @@
+.heading {
+    padding: 20px;
+    text-align: center;
+    background-color: #054853;
+    color: white;
+    font-size: 30px;
+  }
+
+ 
+.row{
+  align-content:space-around;
+  padding-left: 350px;
+}
+
+  
+  
+  .column {
+    float: left;
+    width: 33.3%;
+    margin: 70px;
+align-content: center;
+    padding: 0 8px;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-size: cover;
+    width:700px;
+    height:400px
+
+  }
+  
+  .courses {
+    padding: 10px;
+    text-align: center;
+    background-color: #054853;
+    color: white;
+  }
+  
+  .container {
+    padding: 0 36px;
+  }
+
+  .title {
+    color: grey;
+  }
+  
+  .card-title{
+    font-style: italic;
+    align-content: space-around;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+  }
+
+  .card-body{
+    color: rgb(73, 4, 33);
+    margin: 10px;
+    font-style: italic;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+
+  }
+
+  
+  

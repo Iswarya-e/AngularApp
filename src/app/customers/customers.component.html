@@ -1,0 +1,30 @@
+<div class="heading">
+    <h1>Customer </h1>
+  </div>
+  <br>
+  <div class="container">
+    <table broder="1" align="center">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Age</td>
+            <td>Email</td>
+            <td>Phone Number</td>
+            <td>DOB</td>
+            <td>Image</td>
+    
+    
+        </tr>
+        <tr *ngFor="let i of users">
+            <td>{{i.userId}}</td>
+            <td>{{i.userName}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.email}}</td>
+            <td> {{i.phoneNumber}}</td>
+            <td>{{i.dob}}</td>
+            <td> <img [src]="i.userImage" height="100px" width="200px"/></td>
+    
+        </tr>
+    </table>
+  </div>
+  

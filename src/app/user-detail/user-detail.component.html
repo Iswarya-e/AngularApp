@@ -1,0 +1,96 @@
+<div class="panel">
+    <div class="panel-heading">
+        <div class="panel-title " style="text-align:center">
+            <div class="heading">
+                <h3>User Information</h3>
+
+            </div>
+        </div>
+        <div class="panel-body panel-primary">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{user.id}}</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{user.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>User Name </th>
+                        <td>{{user.username}}</td>
+                    </tr>
+                    <tr>
+                        <th>Email Id</th>
+                        <td>{{user.email}}</td>
+                    </tr> 
+                    </thead>
+            </table>
+            <h4 style="text-align: center;">Other Important details</h4>
+            <br/>
+            <div class="container">
+            <table class="table table-bordered" >
+                <thead>
+                    <tr>
+                        <th colspan="2" style="text-align: center;"> Address of the User:</th>
+                    </tr>  
+                <tr>
+                    <th>Street</th>
+                    <td>{{user.address.street}}</td>
+                  </tr>
+                  <tr>
+                      <th>Suite</th>
+                      <td>{{user.address.suite}}</td>
+                  </tr>
+                  <tr>
+                      <th>city</th>
+                      <td>{{user.address.city}}</td>
+                  </tr>
+                  <tr>
+                      <th>ZipCode</th>
+                      <td>{{user.address.zipcode}}</td>
+                  </tr>
+                  <tr>
+                      <th colspan="2" style="text-align: center;">Geographical Location Details</th>
+                  </tr>
+                  <tr>
+                    <th> Latitiude </th>
+                    <td>{{user.address.geo.lat}}</td>
+                </tr>
+                  <tr>
+                      <th> Longitude </th>
+                      <td>{{user.address.geo.lng}}</td>
+                  </tr>
+                  <tr>
+                    <th colspan="2" style="text-align: center;">Other details</th>
+                </tr>          
+                <tr>
+                    <th>Phone</th>
+                    <td>{{user.phone}}</td>
+                </tr>
+                <tr>
+                    <th>Website</th>
+                    <td>{{user.website}}</td>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align: center;">Company details</th>
+                </tr>
+                <tr>
+                    <th>Company Name</th>
+                    <td>{{user.company.name}}</td>
+                </tr>
+                <tr>
+                    <th>CatchPrase</th>
+                    <td>{{user.company.catchPhrase}}</td>
+                </tr>
+                <tr>
+                    <th>bs</th>
+                    <td>{{user.company.bs}}</td>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        </div>
+    </div>
+  </div>

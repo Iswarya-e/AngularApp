@@ -1,0 +1,28 @@
+
+<div class="heading">
+    <h1>Feedback </h1>
+  </div>
+  <div class="container">
+    <br>
+
+    <table border="1" align="center">
+        <tr align="center">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Feedback</th>
+            <th>Date</th>
+        </tr>
+        <tr  align="center" *ngFor="let i of feedBack">
+            <td>{{i.feedbackId}}</td>
+            <td>{{i.feedbackBy}}</td>
+            <td>{{i.feedbackGiven}}</td>
+            <td>{{i.feedbackDate}}</td>
+    
+        </tr>
+    </table>
+   
+</div>
+
+
+  
+    

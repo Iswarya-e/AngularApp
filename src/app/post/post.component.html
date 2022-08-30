@@ -1,0 +1,36 @@
+<div class="heading">
+    <h1>Posts</h1>
+ </div>
+<div align="center" class="container">
+
+    <br>
+    <table class="table1">
+        <tr align="center">
+            <td>Post Id:</td>
+            <td><input type="text" [(ngModel)]="PostId" ></td>
+            <td><button (click)="SearchbyPostId()" class="btn">Search</button></td>
+    
+            <td>User Id:</td>
+            <td><input type="text" [(ngModel)]="UserId"></td>
+            <td><button (click)="SearchbyUserId()" class="btn">Search</button></td>
+          
+        </tr>
+    </table>
+    <br>
+    <table class="table table-striped" border="1">
+        <tr align="center">
+            <td>Post Id</td>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Body</td>
+    
+        </tr>
+        <tr *ngFor="let i of posts"  align="center">
+            <td>{{i.userId}}</td>
+            <td>{{i.id}}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.body}}</td>
+        </tr>
+    </table>
+
+</div>

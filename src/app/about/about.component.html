@@ -1,0 +1,27 @@
+
+<div class="about">
+    <h1>About Us </h1>
+    <p>We are honoured to be recognised for the work we do on behalf of our customers, employees, and communities every day.</p>
+  </div>
+  
+  <h2>Our Team</h2>
+  <div class="row" >
+    <div *ngFor="let i of empJson">
+        <div class="column">
+            <div class="container">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="{{i.logo}}" alt="Card image" width="400" 
+                    height="200">
+                    <div class="card-body">
+                      <h4 class="card-title" align="center">{{i.name}}</h4>
+                      <h5 class="card-role">{{i.role}}</h5>
+                      <p class="card-text">{{i.Description}} </p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+   
+  

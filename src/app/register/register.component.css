@@ -1,0 +1,74 @@
+
+.panel-primary {
+    border-color: #0a0a0a;
+    border-radius: 50px;
+
+}
+.panel-heading {
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.panel-body {
+    border: 1px solid black;
+
+
+}
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 1 1px 1px rgba(12, 12, 12, 0.05);
+}
+.container {
+    padding-right: auto;
+    padding-left: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+.glyphicon {
+    font-size: 300px;
+   
+}
+.one{
+    padding-right : 200px;
+    margin: top 200px; ;
+    margin: left 200px;;
+    margin: right 2000px; 
+    width: 500px;
+
+
+
+}
+.two{
+    padding-right : 200px;
+    margin: top 200px; ;
+    margin: left 200px;;
+    margin: right 400px; 
+    width: 700px;
+
+
+
+}
+.form group{
+    display: table;
+}
+label{
+    display: table-cell;
+    /* padding: 10 10px 10 16px; */
+    width: 1px;
+    white-space: nowrap;
+}
+span{
+    display: table-cell;
+    padding: 5 4px 5 6px;
+        width: 500px;
+
+
+}
+.glyphicon-user:before{
+    margin-left: 75px;
+    margin-right: 50px; 
+    width: 500px;
+}

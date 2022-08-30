@@ -1,0 +1,25 @@
+.container {
+
+    position: fixed;
+    background-position:left;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+
+  }
+
+  .centered {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    color:rgb(15, 2, 2);
+    transform: translate(-50%, -50%);
+  }
+
+  .bg-container {
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-attachment: fixed;
+  }

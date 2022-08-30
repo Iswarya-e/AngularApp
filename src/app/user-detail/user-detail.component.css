@@ -1,0 +1,21 @@
+.heading {
+    padding: 10px;
+    text-align: center;
+    background-color: #467092;
+    color: rgb(255, 255, 255);
+    
+  }
+ 
+  th{
+    background-color: #dfe8f0;
+    color: black;
+    border-color:black ;
+
+
+  }
+  tr{
+    background-color: #ebedee;
+    border-color:black ;
+
+
+  }

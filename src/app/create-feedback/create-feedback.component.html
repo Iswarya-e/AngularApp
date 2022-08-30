@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading" [style.background-color]="'black'">Create Feedback</div>
+        <div class="panel-body">
+            <form [formGroup]="mygroup" (ngSubmit)="SaveFeedback()">
+                
+                <div class="form group">
+                    <label>Enter your name</label>
+                    <input type="text" formControlName="FeedbackBy" class="form-control">
+                </div>
+                <div class="form group">
+                    <label>Enter you Feedback</label>
+                    <textarea type="text" formControlName="FeedbackGiven" class="form-control"></textarea>
+                </div>
+               
+                <div class="form group">
+                    <label>Date</label>
+                    <input type="text" class="form-control" formControlName="FeedbackDate" [disabled]="true">
+    
+                </div>
+                
+                <div class="form group">
+                    <br>
+                    <button type="submit" [style.background-color]="'black'" class="btn btn-primary">Submit</button>
+                </div>
+    
+            </form> 
+        </div>
+    </div>
+    
+    
+    
+</div>

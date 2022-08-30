@@ -1,0 +1,19 @@
+.heading {
+    padding: 10px;
+    text-align: center;
+    background-color: #020505;
+    color: white;
+  }
+  .btn{
+    text-align: left;
+    width:1330px;
+    font-style: bold;
+    font-size: 20px;
+
+  }
+  .answer{
+    font-style: italic;
+    text-align: left;
+    margin-left:5px;
+    font-size: 13px;
+  }

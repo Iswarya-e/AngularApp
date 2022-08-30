@@ -1,0 +1,14 @@
+
+.container {
+    width: 500px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.panel-primary {
+    border-color: #0a0a0a;
+}
+* {
+    box-sizing: border-box;
+}

@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Product Information</div>
+        <div class="panel-body">
+            <div class="continer-fluid">
+                <table border="1" class="table table-bordered">
+                    <thead>
+                        <tr [style.background-color]="'#337ab7'" [style.color]="'white'" >
+                            <th>Id</th>
+                            <th>Image</th>
+                            <th>Product</th>
+                            <th>Code</th>
+                            <th>Price</th>
+                            <th>Star Rating</th>
+                            <th>Cart <button (click)="postDatatoCart()"><span class="glyphicon glyphicon-shopping-cart" style="color:black">{{count}}</span></button></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let i of products">
+                        <td>{{i.productId}}</td>
+                        <td><img [src]='i.imageUrl'
+                        [title]='i.productName'
+                        [style.width.px]='imageWidth'
+                        [style.margin.px]='imageMargin'>
+                    </td>
+                    <td>
+                        <a [routerLink]="['/ProductDetail', i.productId]" [queryParams]="{
+                                              name: i.productName,
+                                              img: i.imageUrl,
+                                              price:i.price
+                                             }">
+                            {{i.productName | uppercase}}
+                        </a>
+                    </td>
+    
+                    <td> {{i.productCode}}</td>
+                            <td [ngStyle]="i.price > 20000 ? {'color':'red'} : {'color': 'green'}">
+                                {{i.price | currency:'INR':'symbol-narrow'}}</td>
+                            <td> {{i.starRating}}</td>
+                            <td>
+                                <button class="btn btn-primary" (click)="Addtocart(i.productId)">Add to cart</button>
+                            </td>
+    
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

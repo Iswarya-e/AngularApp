@@ -1,0 +1,44 @@
+<div class="heading">
+    <h1>Frequently Asked Questions</h1>
+</div>
+<div class="container-fluid">
+    <div>
+        <button  class="btn btn-lg" (click)="showans1()"> {{questions[0]}}</button>
+
+        <div class="answer" *ngIf="showMyContainer1">
+            {{answers[0]}}
+        </div>
+    </div>
+   <div>
+    <button  class="btn btn-lg" (click)="showans2()">{{questions[1]}}</button>
+
+    <div class="answer" *ngIf="showMyContainer2">
+        {{answers[1]}}
+    </div>
+   </div>
+   <div>
+    <button  class="btn btn-lg" (click)="showans3()">{{questions[2]}}</button>
+
+    <div class="answer" *ngIf="showMyContainer3">
+        {{answers[2]}}
+    </div>
+   </div>
+   <div>
+
+    <button  class="btn btn-lg" (click)="showans4()">{{questions[3]}}</button>
+
+    <div class="answer"  *ngIf="showMyContainer4">
+        {{answers[3]}}
+    </div>
+   </div>
+    
+   <div>
+    <button  class="btn btn-lg" (click)="showans5()">{{questions[4]}}</button>
+
+    <div class="answer" *ngIf="showMyContainer5">
+        {{answers[4]}}
+    </div>
+   </div>
+   
+
+</div>

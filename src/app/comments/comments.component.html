@@ -1,0 +1,31 @@
+
+  <div class="heading">
+    <h1>Comments</h1>
+</div>
+<div align="center" class="container">
+  
+<br>
+    <table class="table table-bordered" border="2" >
+        <tr>
+            <th><b>Post ID</b></th>
+            <th><b>ID</b></th>
+            <th><b>Name</b></th>
+    
+            <th><b>Title</b></th>
+            <th><b>Body</b></th>
+          
+    
+        </tr>
+        <tr *ngFor="let i of comments">
+            <td>{{i.postId}}</td>
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.body}}</td>
+            
+    
+        </tr>
+    </table>
+    
+    
+</div>

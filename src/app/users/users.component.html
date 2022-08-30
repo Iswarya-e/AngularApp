@@ -1,0 +1,50 @@
+<div class="heading">
+   
+       <h1> Users Data</h1>
+
+</div>
+<div align="center" class="container">
+   
+    <br>
+<table>
+    <tr>
+        <td>Id:</td>
+        <td><input type="text" [(ngModel)]="Id"></td>
+        <td><button (click)="SearchbyId()" class="btn">Search</button></td>
+         
+        <td>Name:</td>
+        <td><input type="text" [(ngModel)]="Name" ></td>
+        <td><button (click)="SearchbyName()" class="btn">Search</button></td>
+
+        <td>Email:</td>
+        <td><input type="text" [(ngModel)]="Email"></td>
+        <td><button (click)="SearchbyEmail()" class="btn">Search</button></td>
+
+    </tr>
+</table>
+<br>
+
+<table class="table table-bordered" border="2" >
+    <tr align="center">
+        <td><b>Id</b></td>
+        <td><b>Name</b></td>
+        <td><b>UserName</b></td>
+        <td><b>Email</b></td>
+        <td><b>Street</b></td>
+        <td><b>City</b></td>
+        <td><b>Latitude</b></td>
+        <td><b>Longitude</b></td>
+    </tr>
+    <tr align="center" *ngFor="let i of user">
+        <td><a [routerLink]="['/UserDetail',i.id]">{{i.id}}</a></td>
+         <td>{{i.name}}</td>
+        <td>{{i.username}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.address.street}}</td>
+        <td>{{i.address.city}}</td>
+        <td>{{i.address.geo.lat}}</td>
+        <td>{{i.address.geo.lng}}</td>
+
+    </tr>
+</table>
+</div>

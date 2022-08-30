@@ -1,0 +1,82 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="Home">E-Commerce</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <a routerLink="Home" routerLinkActive="active">Home</a>
+      </li>
+      <li class="active">
+        <a routerLink="Products" routerLinkActive="active">Products</a>
+      </li>
+      <li class="active">
+        <a routerLink="Users" routerLinkActive="active">Users</a>
+      </li>
+
+      <li class="active">
+        <a routerLink="Post" routerLinkActive="active">Post</a>
+      </li>
+
+      <li class="active">
+        <a routerLink="Album" routerLinkActive="active">Album</a>
+      </li>
+
+      <li class="active">
+        <a routerLink="Comments" routerLinkActive="active">Comments</a>
+      </li>
+
+      <li class="active">
+        <a routerLink="Contact" routerLinkActive="active">Contact</a>
+      </li>
+      
+      <li class="active">
+        <a routerLink="Help" routerLinkActive="active">Help</a>
+      </li>
+
+      <li class="active">
+        <a routerLink="About" routerLinkActive="active">About</a>
+      </li>
+      <li class="active">
+        <a routerLink="Courses" routerLinkActive="active">Courses</a>
+      </li> 
+      <li class="active">
+        <a routerLink="Customers" routerLinkActive="active">Customers</a>
+      </li> 
+
+      <li class="active">
+        <a routerLink="Feedback" routerLinkActive="active">Feedback</a>
+      </li>
+
+      <li class="active">
+        <a routerLink="CreateFeedback" routerLinkActive="active">Create Feedback</a>
+      </li>
+      <li> </li>
+      <li class="active">
+       <a style="background-color:white;color:black"><b> Welcome {{loggedinUser}}!!!!</b> </a> 
+
+        
+
+      </li>
+
+          
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+
+        <a routerLink="Register" routerLinkActive="active"><span class="glyphicon glyphicon-user" value="SignUp">SignUp</span></a>
+
+      </li>
+      <li>
+          <a routerLink="Login" routerLinkActive="active"><span class="glyphicon glyphicon-log-in" value="Login">Login</span></a>
+      </li> 
+      <li>
+        <a routerLink="Logout" routerLinkActive="active"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+       </li>
+    </ul>
+
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

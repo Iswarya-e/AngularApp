@@ -1,0 +1,29 @@
+<div class="container">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading" [style.background-color]="'black'">Customer Login</div>
+        <div class="panel-body">
+            <form [formGroup]="mygroup" (ngSubmit)="Login()">
+                <div class="form group">
+                    <label>User Name</label>
+                    <input type="text" formControlName="username" class="form-control" >
+                </div>
+                <div class="form group">
+                    <label>Password</label>
+                    <input type="password" formControlName="password" class="form-control">
+                </div>
+            <br>
+                <div class="form group">
+                    <button type="submit" [style.background-color]="'black'" class="btn btn-primary">Submit</button>
+                </div>
+                <br>
+    <div>
+        <p>{{message}}</p>
+    </div>
+            </form> 
+        </div>
+    </div>
+</div>
+
+
+

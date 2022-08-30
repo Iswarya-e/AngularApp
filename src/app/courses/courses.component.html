@@ -1,0 +1,48 @@
+<div class="courses">
+    <h1>Courses</h1>
+  </div>
+  <div class="row" >
+    <div *ngFor="let i of courseJson1">
+        <div class="column">
+            <div class="container">
+                <div class="card" style="width:400px">
+                  <a [routerLink]="['/CourseDetails']" [queryParams]="{
+                        name: i.name,
+                        img: i.logo,
+                        description:i.description}">
+                    <img class="card-img-top" src="{{i.logo}}" alt="Card image" width="400" 
+                    height="200"></a>
+                    <div class="card-body" >
+                      <h4 class="card-title" align="center">{{i.name}}</h4>
+                      <p class="card-text">{{i.description}} </p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="row" >
+    <div *ngFor="let i of courseJson2">
+        <div class="column">
+            <div class="container">
+                <div class="card" style="width:400px">
+                  <a [routerLink]="['/CourseDetails']" [queryParams]="{
+                    name: i.name,
+                    img: i.logo,
+                    description:i.description}">
+                <img class="card-img-top" src="{{i.logo}}" alt="Card image" width="400" 
+                height="200"></a>
+                    <div class="card-body">
+                      <h4 class="card-title" align="center" [style.font-weight]="'Italic'">{{i.name}}</h4>
+                      <p class="card-text">{{i.description}} </p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+ 
