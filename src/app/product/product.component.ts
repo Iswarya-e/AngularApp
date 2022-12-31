@@ -10,11 +10,8 @@ import { ProductsService } from '../Services/products.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
   providers: [ProductsService]
-
 })
 export class ProductComponent{
-
-
   products:any;
   imageWidth:number=100;
   imageMargin:number=10;
@@ -29,32 +26,19 @@ export class ProductComponent{
       this.router.navigate(["Login"])
     }
     this.prodService.GetProducts().subscribe(data =>{this.products=data;});
-    this.cartservice.getDatafromCart(parseInt(localStorage.getItem('userId'))).subscribe(data =>{this.cartdata=data;
-    
-    console.log(data);
-    });
+    this.cartservice.getDatafromCart(parseInt(localStorage.getItem('userId'))).subscribe
+      (data =>{this.cartdata=data;
+      console.log(data);
+      });    
 
-    
-    // for(const i of this.cartdata)
-    // {
-    //   this.count++;        
-    // }
-    // if(!(typeof this.cartdata == 'undefined')){
-    //   console.log("Inside if");
       
-    //   let cartdetails=new Array<number>;
-    //   cartdetails=this.cartdata.map(item => {return item.ProductId;});
-    //   this.count=cartdetails.length;
-    //   console.log(this.count);
-    // }
+  
+   
     
     
   
       
   }
-
-   
-
   Addtocart(id:any){
     let cartdata=new Cart();
     cartdata.ProductId=id;
@@ -67,7 +51,7 @@ export class ProductComponent{
 
   postDatatoCart()
   {
-    this.router.navigate(["Cart"])
+    this.router.navigate(["Cart"]);
   }  
 
 }

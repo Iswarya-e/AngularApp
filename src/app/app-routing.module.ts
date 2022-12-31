@@ -43,7 +43,7 @@ const routes:Routes=[
     {path:"Login",component:LoginComponent},
     {path:"Courses",component:CoursesComponent},
     {path:"Customers",component:CustomersComponent},
-    {path:"CourseDetailsComponent/",component:CourseDetailsComponent},
+    {path:"CourseDetails",component:CourseDetailsComponent},
     {path:"UserDetail/:id",component:UserDetailComponent},
     {path:"ProductDetail/:id",component:ProductDetailsComponent},
     {path:"Cart",component:CartComponent}

@@ -11,7 +11,7 @@ export class CartService {
   private addurl:string="http://localhost:49541/api/Cart/AddDatatoCart";
   private deleteurl:string="http://localhost:49541/api/Cart/DeletefromCart";
   private geturl:string="http://localhost:49541/api/Cart/GetCartData";
-
+  private getcarttotalurl:string="http://localhost:49541/api/Cart/GetCartTotal";
   
   constructor(private http:HttpClient) {
   }
@@ -32,4 +32,12 @@ export class CartService {
    console.log(this.http.post<Cart>(this.geturl,user,{headers}));
    return this.http.post<Cart>(this.geturl,user,{headers});
  }
+
+ getCartTotal(temp:number):Observable<Cart> {
+  console.log(temp);
+  const headers = new HttpHeaders().set('content-type', 'application/json');
+  let user=new Cart();
+  user.UserId=temp;
+  return this.http.post<Cart>(this.getcarttotalurl,user,{headers});
+}
 }

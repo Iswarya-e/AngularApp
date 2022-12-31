@@ -2,18 +2,24 @@ table, th , td {
   border: 1px solid grey;
   border-collapse: collapse;
   padding: 5px;
+  text-align: center;
 }
 table tr:nth-child(odd) {
   background-color: #d8cbdf81;
+  text-align: center;
+
 }
 
 table tr:nth-child(even) {
   background-color: #deecf1;
   color: black;
+  text-align: center;
+
 }
 .heading {
-  padding: 1px;
   text-align: center;
   background-color: #3e7086;
   color: rgb(241, 232, 232);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 }

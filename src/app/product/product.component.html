@@ -12,8 +12,7 @@
                             <th>Code</th>
                             <th>Price</th>
                             <th>Star Rating</th>
-                            <th>Cart <button (click)="postDatatoCart()"><span class="glyphicon glyphicon-shopping-cart" style="color:black">{{count}}</span></button></th>
-
+                            <th>Cart <button (click)="postDatatoCart()"><span class="glyphicon glyphicon-shopping-cart" style="color:black">{{cartdata.length}}</span></button></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,8 +39,9 @@
                             <td> {{i.starRating}}</td>
                             <td>
                                 <button class="btn btn-primary" (click)="Addtocart(i.productId)">Add to cart</button>
+                                &nbsp;
+                                <button class="btn btn-success"> Buy Now</button>
                             </td>
-    
                     </tr>
                 </tbody>
                 </table>
