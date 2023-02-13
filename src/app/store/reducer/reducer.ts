@@ -24,14 +24,14 @@ export function feedbackReducer
             return {
                 ...state,
                 isLoading:true,
-                isFailure:false,
+                isFailure:undefined,
             }
         case FeedbackActionType.LOAD_FEEDBACK_SUCCESS:
             
             return {
                 ...state,
                 isLoading:false,
-                isFailure:false,
+                isFailure:undefined,
                 feedBackList:action.payload
             }
         case FeedbackActionType.LOAD_FEEDBACK_FAILURE:
@@ -39,7 +39,7 @@ export function feedbackReducer
             return {
                 ...state,
                 isLoading:false,
-                isFailure:true,
+                isFailure:action.payload,
             }
         default:
             return state;

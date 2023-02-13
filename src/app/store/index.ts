@@ -1,15 +1,19 @@
 
+import { HttpErrorResponse } from '@angular/common/http';
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store'
 import { Feedback } from '../Model/Feedback'
 import * as fromReducer from './reducer/reducer'
 
-
+export interface NgRxError{
+  concern:string;
+  error:HttpErrorResponse;
+}
 export interface State{
     ['feedback']:FeedbackState
 }
 export interface FeedbackState{
     isLoading:boolean,
-    isFailure:boolean,
+    isFailure:NgRxError,
     feedBackList:Feedback[]
 
 }

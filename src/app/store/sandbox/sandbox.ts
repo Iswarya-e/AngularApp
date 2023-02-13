@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { select, State, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
@@ -6,14 +7,17 @@ import * as FeedBackAccount from "..";
 import { LoadFeedback } from "../action/action";
 
 
-
+export interface NgRxError{
+    concern:string;
+    error:HttpErrorResponse;
+}
 
 export class FeedbackSandbox{
 
 
 /*Public Properties */
 public readonly isLoading$:Observable<boolean>;
-public readonly isFailure$:Observable<boolean>;
+public readonly isFailure$:Observable<NgRxError>;
 public readonly feedbackDetails$:Observable<Feedback[]>;
 
 /*Constructor*/
