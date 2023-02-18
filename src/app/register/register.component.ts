@@ -12,6 +12,7 @@ export class RegisterComponent{
   str:string ="";
   selectedFile: File = null;
   theFile: any = null;
+  condition='180';
 theFiles:any=[];
   mygroup:FormGroup;
   newBlogForm: FormGroup<{ Name: FormControl<any>; ImageOfUser: any; }>;
@@ -25,8 +26,6 @@ theFiles:any=[];
       'email':[],
       'phoneNumber':[],
       'dob':[],
-
-
     })
   }
   
@@ -53,7 +52,7 @@ console.log("Inside save function");
 
 
 
-/////////
+
 
 
 

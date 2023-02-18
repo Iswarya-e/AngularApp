@@ -12,37 +12,45 @@ import { ProductsService } from '../Services/products.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit{
+export class CartComponent {
   dummyproduct:Product[];
   products: any;
   cartdata: any;
   count: number;
+  total:any;
   carts:number[];
   constructor(private prodService:ProductsService,private router:Router,private cartservice:CartService){
     this.cartservice.getDatafromCart(parseInt(localStorage.getItem('userId'))).subscribe(data =>{
       console.log(data);
       this.cartdata=data;
-    });
-    
       
-      let cartIds=new Array<number>;
-      cartIds=this.cartdata.map(item => {return item.productId;});
-      console.log(cartIds);
-      for(let n=0;n<cartIds.length;n++)
-      {
-        let temp1:any;
-        this.prodService.GetProductbyIdForCart(cartIds[n]).subscribe(data=>{
-          console.log(data);
-          temp1=data});
-        console.log(temp1);
+    });
+    this.cartservice.getCartTotal(parseInt(localStorage.getItem('userId'))).subscribe(data =>{
+      console.log(data);
+      this.total=data;
+      
+    });
+   
+      
+      // let cartIds=new Array<number>;
+      // cartIds=this.cartdata.map((i: { cartIds: any; }) => {return i.cartIds;});
+      // console.log(cartIds);
+      // this.count=cartIds.length;
+      // for(let n=0;n<cartIds.length;n++)
+      // {
+      //   let temp1:any;
+      //   this.prodService.GetProductbyIdForCart(cartIds[n]).subscribe(data=>{
+      //     console.log(data);
+      //     temp1=data});
+      //   console.log(temp1);
 
-        this.dummyproduct.push(temp1);
+      //   this.dummyproduct.push(temp1);
 
 
-      }
+      // }
      
      
-      console.log(this.dummyproduct);
+      // console.log(this.dummyproduct);
 
       // this.cartdata.forEach(element => {
       //   let product=new Product();
@@ -66,7 +74,4 @@ export class CartComponent implements OnInit{
   
   }
 
-  ngOnInit(): void {
-    console.log(this.cartdata);
-  }
 }

@@ -1,10 +1,41 @@
-<p>cart works!</p>
-<table>
-    <tr>
-        <th>Productd</th>
-
-    </tr>
-    <tr *ngFor="let i of cartdata">
-        <td>{{i.productId}}</td>
-    </tr>
-</table>
+<div class="container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Cart Information</div>
+        <div class="panel-body">
+            <div class="continer-fluid">
+                <table border="1" class="table table-bordered">
+                    <thead>
+                        <tr [style.background-color]="'#337ab7'" [style.color]="'white'" >
+                            <th>Id</th>
+                            <th>Image</th>
+                            <th>Product</th>
+                            <th>Code</th>
+                            <th>Price</th>
+                            <th>Star Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of cartdata">
+                                <td>{{i.productId}}</td>
+                                <td><img [src]='i.imageUrl'
+                                    [title]='i.productName'>
+                                </td>
+                                <td>
+                                        {{i.productName | uppercase}}
+                                </td>
+                                <td> {{i.productCode}}</td>
+                                <td [ngStyle]="i.price > 20000 ? {'color':'red'} : {'color': 'green'}">
+                                    {{i.price | currency:'INR':'symbol-narrow'}}</td>
+                                <td> {{i.starRating}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">Total</td>
+                            <td colspan="1">{{total| currency:'INR':'symbol-narrow'}}</td>
+                            <td><button class="btn btn-success">Proceed to buy</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

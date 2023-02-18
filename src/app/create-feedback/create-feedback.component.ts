@@ -12,6 +12,9 @@ export class CreateFeedbackComponent  {
 
   feedbackDate:Date;
   mygroup:FormGroup;
+  currdate:Date=new Date();
+  date: string = this.currdate.getFullYear()+'-'+(this.currdate.getMonth()+1)+'-'+this.currdate.getDate();
+
   constructor(private myBuilder:FormBuilder,private _router:Router,private feedbackService:FeedbackService,private router:Router) { 
    
     let a=localStorage.getItem('uname');
