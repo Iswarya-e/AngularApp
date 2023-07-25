@@ -15,4 +15,4 @@ export const getRootState = createFeatureSelector<State>('feedback');
 export const getFeedbackState=createSelector(getRootState,(state:State)=>state.feedbackState);
 export const getFeedbackList = createSelector(getFeedbackState,fromFeedbackReducer.getFeedbackDetails);
 export const getIsLoading=createSelector(getFeedbackState,fromFeedbackReducer.getIsLoading);
-export const gethasFailure=createSelector(getFeedbackState,fromFeedbackReducer.getHasFailure);
+export const getHasFailure=createSelector(getFeedbackState,fromFeedbackReducer.getHasFailure);

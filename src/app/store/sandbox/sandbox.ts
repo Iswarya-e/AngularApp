@@ -20,7 +20,7 @@ export class FeedbackSandbox{
     /*Constructor*/
     constructor(private store:Store<fromFeedbackStore.State>) {
         this.isLoading$=this.store.pipe(select(fromFeedbackStore.getIsLoading));
-        this.hasFailure$=this.store.pipe(select(fromFeedbackStore.gethasFailure));
+        this.hasFailure$=this.store.pipe(select(fromFeedbackStore.getHasFailure));
         this.feedbackDetails$=this.store.pipe(select(fromFeedbackStore.getFeedbackList));
     }
 

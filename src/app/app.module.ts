@@ -8,6 +8,7 @@ import * as fromFeedbackReducer from './store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FeedbackSandbox } from './store/sandbox/sandbox';
+import { FeedbackEffects } from './store/effect/effect';
 
 
 
@@ -24,7 +25,8 @@ import { FeedbackSandbox } from './store/sandbox/sandbox';
     AppRoutingModule,
     FormsModule,
     StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([FeedbackEffects]),
+
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [FeedbackSandbox],

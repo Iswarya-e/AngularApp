@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from "@angular/common/http";
 
 export interface ErrorResponse{
-    cnocern:string,
+    concern:string,
     error:HttpErrorResponse
 }

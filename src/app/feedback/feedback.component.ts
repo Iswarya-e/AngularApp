@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Feedback } from '../Model/Feedback';
 import { FeedbackService } from '../Services/feedback.service';
 import { first, map, Subscribable, Subscription } from 'rxjs';
-import { RegistrationService } from '../Services/registration.service';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { FeedbackSandbox } from '../store/sandbox/sandbox';
+import { Feedback } from '../Model/Feedback';
 
 @Component({
   selector: 'app-feedback',
@@ -17,22 +16,24 @@ export class FeedbackComponent{
 
   feedBack:any;
   isLoadingSubscription: Subscription;
-  constructor(private feedbackSandBox:FeedbackSandbox,private router:Router,private sanitizer: DomSanitizer) {
+  constructor(private feedbackSandBox:FeedbackSandbox,private router:Router,private sanitizer: DomSanitizer,feedbackService:FeedbackService) {
 
     let a=localStorage.getItem('uname');
     if(!(typeof a != 'undefined' && a)){
       this.router.navigate(["Login"])
     }
+     
+   
     
-      // this.feedbackService.GetFeedback().subscribe((result) => {
-      // console.log(result);
     
 
   }
-  ngOnInit():void
-  {
+  ngOnInit(): void {
     this.feedbackSandBox.loadFeedbackDetails();
-    this.handleLoading('Load Feedback');
+    this.feedbackSandBox.feedbackDetails$.subscribe((data) => {
+      this.feedBack = data;
+      console.log(data);
+    });
   }
   sanitizeImageUrl(imageUrl: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
@@ -46,7 +47,7 @@ export class FeedbackComponent{
         console.log('loading');
       else{
         this.isLoadingSubscription.unsubscribe();
-        this.feedbackSandBox.isFailure$.pipe(first()).subscribe((err)=>{
+        this.feedbackSandBox.hasFailure$.pipe(first()).subscribe((err)=>{
           if(err && err.concern===concern)
             console.log('error');
           else{
