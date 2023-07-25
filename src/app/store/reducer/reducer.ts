@@ -1,48 +1,41 @@
 import { Feedback } from "src/app/Model/Feedback";
-import { FeedbackState } from "..";
-import  {FeedBackAction, FeedbackActionType}  from '../action/action'
+import { createReducer, on } from "@ngrx/store";
+import { feedbackActions } from "../action/action";
+import { ErrorResponse } from "src/app/Model/ErrorResponse";
 
-
-export const feedbackInitialState:FeedbackState={
-    isLoading:false,
-    isFailure:undefined,
+export interface State{
+    isLoading:boolean,
+    hasFailure:ErrorResponse,
+    feedBackList:Feedback[]
+}
+export const INITIAL_STATE:State={
+    isLoading:undefined,
+    hasFailure:undefined,
     feedBackList:undefined
 }
 
-export function feedbackReducer
-(
-    state:FeedbackState=feedbackInitialState,
-    action:FeedBackAction
-):FeedbackState
-{
+export const feedbackReducer = createReducer(
+    INITIAL_STATE,
+    on(feedbackActions.loadFeedback,(state)=>({
+        ...state,
+        isLoading:true,
+        hasFailure:undefined,
+        feedBackList:undefined,
+    })),
+    on(feedbackActions.loadFeedbackSuccess,(state,{payload})=>({
+        ...state,
+        isLoading:false,
+        hasFailure:undefined,
+        feedBackList:payload
 
+    })),
+    on(feedbackActions.loadFeedbackFailure,(state,{payload})=>({
+        ...state,
+        isLoading:false,
+        hasFailure:payload
+    }))
+)
 
-    switch(action.type)
-    {
-        case FeedbackActionType.LOAD_FEEDBACK:
-            
-            return {
-                ...state,
-                isLoading:true,
-                isFailure:undefined,
-            }
-        case FeedbackActionType.LOAD_FEEDBACK_SUCCESS:
-            
-            return {
-                ...state,
-                isLoading:false,
-                isFailure:undefined,
-                feedBackList:action.payload
-            }
-        case FeedbackActionType.LOAD_FEEDBACK_FAILURE:
-            
-            return {
-                ...state,
-                isLoading:false,
-                isFailure:action.payload,
-            }
-        default:
-            return state;
-            
-    }
-}
+export const getFeedbackDetails = (state:State)=>state.feedBackList;
+export const getIsLoading = (state: State)=> state.isLoading;
+export const getHasFailure = (state: State)=> state.hasFailure;

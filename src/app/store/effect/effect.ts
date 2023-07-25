@@ -1,14 +1,38 @@
 import { HttpErrorResponse } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, Observable, of, switchMap } from "rxjs";
 import { Feedback } from "src/app/Model/Feedback";
 import { map } from 'rxjs/operators';
 
 import { FeedbackService } from "src/app/Services/feedback.service";
-import { FeedBackAction, FeedbackActionType, LoadFeedback, LoadFeedbackFailure, LoadFeedbackSuccess } from "../action/action";
+import { Injectable } from "@angular/core";
+import { ofType, Actions, createEffect } from "@ngrx/effects";
+import * as fromAction from '../action/action'
+import { ErrorResponse } from "src/app/Model/ErrorResponse";
+@Injectable()
+export class FeedbackEffects{
+    constructor(private feedbackService:FeedbackService,
+        protected actions$: Actions) {}
 
-export class FeedbackEffects {
+    loadFeedback=createEffect(()=>
+    this.actions$.pipe(
+        ofType(fromAction.feedbackActions.loadFeedback),
+        switchMap(()=>{
+            this.feedbackService.GetFeedback().pipe(
+                map((data:Feedback[])=>{
+                    fromAction.feedbackActions.loadFeedbackSuccess({payload:data}),
+                    catchError((error:ErrorResponse)=>{
+                    fromAction.feedbackActions.loadFeedbackFailure({payload:error})
+                    })
+                })
+            )
+        }
+    )
+   ))
+    
+ }
+
+
+export class rew {
     constructor(
         private actions$: Actions,
         private feedbackService:FeedbackService

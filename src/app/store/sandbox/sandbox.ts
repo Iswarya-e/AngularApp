@@ -1,35 +1,30 @@
-import { HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { select, State, Store } from "@ngrx/store";
+import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
+import { ErrorResponse } from "src/app/Model/ErrorResponse";
 import { Feedback } from "src/app/Model/Feedback";
-import * as FeedBackAccount from "..";
-import { LoadFeedback } from "../action/action";
+import * as fromFeedbackStore from '../index'
+import { feedbackActions } from "../action/action";
 
-
-export interface NgRxError{
-    concern:string;
-    error:HttpErrorResponse;
-}
+@Injectable({
+  providedIn: 'root',
+})
 
 export class FeedbackSandbox{
 
+    /*Public Properties */
+    public readonly isLoading$:Observable<boolean>;
+    public readonly hasFailure$:Observable<ErrorResponse>;
+    public readonly feedbackDetails$:Observable<Feedback[]>;
 
-/*Public Properties */
-public readonly isLoading$:Observable<boolean>;
-public readonly isFailure$:Observable<NgRxError>;
-public readonly feedbackDetails$:Observable<Feedback[]>;
+    /*Constructor*/
+    constructor(private store:Store<fromFeedbackStore.State>) {
+        this.isLoading$=this.store.pipe(select(fromFeedbackStore.getIsLoading));
+        this.hasFailure$=this.store.pipe(select(fromFeedbackStore.gethasFailure));
+        this.feedbackDetails$=this.store.pipe(select(fromFeedbackStore.getFeedbackList));
+    }
 
-/*Constructor*/
-constructor(private store:Store<FeedBackAccount.State>) {
-    this.isLoading$=this.store.pipe(select(FeedBackAccount.getIsLoading));
-    this.isFailure$=this.store.pipe(select(FeedBackAccount.getIsFailure));
-    this.feedbackDetails$=this.store.pipe(select(FeedBackAccount.getFeedbackDetails));
-}
-
-loadFeedbackDetails()
-{
-    this.store.dispatch(new LoadFeedback());
-}
-
+    loadFeedbackDetails():void{
+        this.store.dispatch(feedbackActions.loadFeedback());
+    }
 }

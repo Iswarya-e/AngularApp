@@ -2,29 +2,17 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store'
 import { Feedback } from '../Model/Feedback'
-import * as fromReducer from './reducer/reducer'
+import * as fromFeedbackReducer from './reducer/reducer'
 
-export interface NgRxError{
-  concern:string;
-  error:HttpErrorResponse;
-}
 export interface State{
-    ['feedback']:FeedbackState
+    feedbackState:fromFeedbackReducer.State
 }
-export interface FeedbackState{
-    isLoading:boolean,
-    isFailure:NgRxError,
-    feedBackList:Feedback[]
-
+export const reducers:ActionReducerMap<State> ={
+  feedbackState:fromFeedbackReducer.feedbackReducer,
 }
+export const getRootState = createFeatureSelector<State>('feedback');
 
-
-export const getFeedbackState=createFeatureSelector<FeedbackState>('feedback');
-
-export const getFeedbackDetails=createSelector(getFeedbackState,(state)=>state.feedBackList);
-export const getIsLoading=createSelector(getFeedbackState,(state)=>state.isLoading);
-export const getIsFailure=createSelector(getFeedbackState,(state)=>state.isFailure);
-
-export function reducers(arg0: string, reducers: any): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
-  throw new Error('Function not implemented.')
-}
+export const getFeedbackState=createSelector(getRootState,(state:State)=>state.feedbackState);
+export const getFeedbackList = createSelector(getFeedbackState,fromFeedbackReducer.getFeedbackDetails);
+export const getIsLoading=createSelector(getFeedbackState,fromFeedbackReducer.getIsLoading);
+export const gethasFailure=createSelector(getFeedbackState,fromFeedbackReducer.getHasFailure);
